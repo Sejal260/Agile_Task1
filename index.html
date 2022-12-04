@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            var my_price = "9.95";
+            $("#custom_size").change(function () {
+                switch ($(this).val()) {
+                    case "S":
+                        my_price = "9.95";
+                        break;
+                    case "M":
+                        my_price = "11.95";
+                        break;
+                    case "L":
+                        my_price = "13.95";
+                        break;
+                    default:
+                        my_price = "9.95";
+                }
+                $("my_price").text("$" + my_price);
+            });
+            function javascript_price_validation() {
+                return true;
+            };
+        });
+
+    </script>
+
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+.dropbtn {
+  background-color: black;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: black;
+}
+
+#myInput {
+  box-sizing: border-box;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#myInput:focus {outline: 3px solid #ddd;}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}  
+
+
+
+
+
+.collapsible {
+  background-color:white;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  float:right;
+  border-bottom: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.collapsible:after {
+  content: '\2304';
+  color: black;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2303";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  
+}
+        #header{
+            border-bottom: 2px solid gray;
+            height: 50px;
+            clear:both;
+            align-items: center;
+        }
+        #topdiv {
+            border-bottom: 2px solid gray;
+            height: 50px;
+            /* display: flex;
+            justify-content: end; */
+            float:right;
+            align-items: center;
+        }
+
+        #icondiv {
+            display: inline-block;
+            padding-top: 15px;
+        }
+        #topdiv-bar {
+            border-bottom: 2px solid gray;
+            height: 50px;
+            /* display: flex;
+            justify-content:start; */
+            float:left;
+            align-items: center;
+            
+        }
+        #topdiv-logo {
+            border-bottom: 2px solid gray;
+            height: 50px;
+            /* display: flex;
+            justify-content:start; */
+            float:left;
+            align-items:center;
+            
+            padding-left: 4px;
+        }
+        
+
+        .iconcolor {
+            background-color: blue;
+            border-radius: 50%;
+            color: white;
+            padding: 4px;
+            margin: 4px;
+            font-size: 16px;
+        }
+
+        .circle {
+            background-color: gray;
+            border-radius: 50%;
+            color: gray;
+            padding: 4px;
+            margin: 4px;
+            font-size: 16px;
+        }
+
+        .menu {
+            border-radius: 50%;
+            color: blue;
+            padding: 4px;
+            margin: 4px;
+            font-size: 16px;
+        }
+
+        #bottomdiv {
+            padding: 26px 26px 26px 120px;
+        }
+
+        #maindiv {
+            border: 2px solid gray;
+            border-radius: 10px;
+        }
+
+        #blueheading {
+            background-color: blue;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 10px;
+            margin: 0px;
+            color: white;
+        }
+
+        #blackheading {
+            padding: 14px;
+            margin: 0px;
+            text-align: center;
+        }
+
+        #insidediv {
+            padding: 14px 40px;
+        }
+
+        .flexdiv {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .blockdiv {
+            border: 2px solid gray;
+            border-radius: 10px;
+            width: 46%;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .blockheading {
+            background-color: black;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 8px;
+            margin: 0px;
+            color: white;
+            text-align: center;
+        }
+
+        .heightdiv {
+            height: 250px;
+        }
+
+        #first {
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        #second {
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #textareadiv {
+            height: 70%;
+            width: 100%;
+        }
+
+        textarea {
+            height: 100%;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        #buttondiv {
+            height: 30%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        #buttonid {
+            background-color: blue;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            color: white;
+            font-size: 10px;
+        }
+
+        .blockicon {
+            padding: 6px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        #heightdivpdf {
+            height: 400px;
+        }
+
+        #pdfdiv {
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #photodiv {
+            width: 46%;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        #audiomaindiv {
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #audiofirstdiv {
+            background-color: gray;
+            height: 50%;
+            width: 100%;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #audioseconddiv {
+            height: 50%;
+            width: 100%;
+            font-size: 12px;
+            overflow: auto;
+        }
+
+        #bottombutton {
+            padding: 0px 26px 40px 0px;
+            display: flex;
+            justify-content: end;
+        }
+
+        #bottombuttonid {
+            background-color: blue;
+            border: none;
+            border-radius: 10px;
+            padding: 6px;
+            color: white;
+            font-size: 16px;
+        }
+
+        @media screen and (max-width: 800px) {
+            
+            #bottomdiv {
+                padding: 18px 18px 18px 60px;
+            }
+
+            #blueheading {
+                font-size: 16px;
+            }
+
+            #blackheading {
+                font-size: 16px;
+            }
+
+            #insidediv {
+                padding: 12px 24px;
+            }
+
+            .blockheading {
+                font-size: 12px;
+            }
+
+            .heightdiv {
+                height: 200px;
+            }
+
+            #first {
+                font-size: 12px;
+            }
+        }
+
+        @media screen and (max-width: 620px) {
+            #insidediv {
+                padding: 12px 80px;
+            }
+
+            .flexdiv {
+                display: block;
+            }
+
+            .blockdiv {
+                width: 100%;
+            }
+
+            #photodiv {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            #blueheading {
+                font-size: 14px;
+            }
+
+            #blackheading {
+                font-size: 14px;
+            }
+
+            #insidediv {
+                padding: 12px 40px;
+            }
+
+            .blockheading {
+                font-size: 10px;
+            }
+        }
+        @media screen and (max-height: 450px) {
+            .sidebar {padding-top: 15px;}
+        .sidebar a {font-size: 18px;}
+            #blueheading {
+                font-size: 14px;
+            }
+
+            #blackheading {
+                font-size: 14px;
+            }
+
+            #insidediv {
+                padding: 12px 40px;
+            }
+
+            .blockheading {
+                font-size: 10px;
+            }
+        
+        
+}
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
+</head>
+
+<body>
+    
+    <div id="header">
+    <div id="topdiv-bar">
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">☰ Journey Board</button>
+            <div id="myDropdown" class="dropdown-content">
+                <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                <a href="#first">Asset heading 1</a>
+                <a href="#second">Asset heading 2</a>
+                <a href="#heightdivpdf">Asset heading 3</a>
+                <a href="#photodiv">Asset heading 4</a>
+                <a href="#audiomaindiv">Asset heading 5</a>
+                <a href="#ytvideo">Asset heading 6</a>
+            </div>
+        </div>
+        <script>
+            function myFunction() {
+                    document.getElementById("myDropdown").classList.toggle("show");
+                }
+
+                function filterFunction() {
+                    var input, filter, ul, li, a, i;
+                    input = document.getElementById("myInput");
+                    filter = input.value.toUpperCase();
+                    div = document.getElementById("myDropdown");
+                    a = div.getElementsByTagName("a");
+                    for (i = 0; i < a.length(); i++) {
+                        txtValue = a[i].textContent || a[i].innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            a[i].style.display = "";
+                        } else {
+                            a[i].style.display = "none";
+                        }
+                    }
+                }
+        </script>
+    </div>
+        <div id="topdiv-logo">
+        <div id="icondiv">
+            <img src="https://deepthought.education/assets/images/logo/logo.svg" alt="">
+        </div>
+        </div>
+    
+    <div id="topdiv">
+        <div id="icondiv">
+            <i class="bi bi-house-door-fill iconcolor"></i>
+            <i class="bi bi-telephone-fill iconcolor"></i>
+            <i class="bi bi-tools iconcolor"></i>
+            <i class="bi bi-bell-fill iconcolor"></i>
+            <i class="bi bi-circle-fill circle"></i>
+            <i class="bi bi-three-dots-vertical menu"></i>
+        </div>
+    </div>
+    </div>
+    <div id="bottomdiv">
+        <div id="maindiv">
+            <h4 class="sizeheading" id="blueheading">
+                Lorem ipsum dolor sit amet consectetur.
+            </h4>
+            <h4 class="sizeheading" id="blackheading">
+                Name of the task goes here
+            </h4>
+            <div id="insidediv">
+                <div class="flexdiv">
+                    <div class="blockdiv">
+                        <h5 class="blockheading">Asset Heading 1</h5>
+                        <div class="heightdiv" style="overflow: auto">
+                            <div id="first">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut
+                                    quia, quod fugiat tenetur eveniet autem omnis cum nam minus
+                                    sunt necessitatibus nihil molestiae impedit consectetur,
+                                    earum expedita quae et in labore dolore exercitationem est
+                                    reprehenderit accusamus! Dolor obcaecati architecto itaque
+                                    sit at modi quia odio sapiente provident. Ut, odio ipsa?
+                                </p>
+                            </div>
+                        </div>
+                        <div class="blockicon">
+                            <button class="collapsible"></button>
+                            <div class="content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat.</p>
+                            </div>
+                            <script>
+                                var coll = document.getElementsByClassName("collapsible");
+                                var i;
+
+                                for (i = 0; i < coll.length; i++) {
+                                    coll[i].addEventListener("click", function () {
+                                        this.classList.toggle("active");
+                                        var content = this.nextElementSibling;
+                                        if (content.style.maxHeight) {
+                                            content.style.maxHeight = null;
+                                        } else {
+                                            content.style.maxHeight = content.scrollHeight + "px";
+                                        }
+                                    });
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <div class="blockdiv">
+                        <h5 class="blockheading">Asset Heading 2</h5>
+                        <div class="heightdiv">
+                            <div id="second">
+                                <div id="textareadiv">
+                                    <textarea>Reflect as per given guidelines</textarea>
+                                </div>
+                                <div id="buttondiv">
+                                    <button id="buttonid">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blockicon">
+                            <button class="collapsible"></button>
+                            <div class="content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat.</p>
+                            </div>
+                            <script>
+                                var coll = document.getElementsByClassName("collapsible");
+                                var i;
+
+                                for (i = 0; i < coll.length; i++) {
+                                    coll[i].addEventListener("click", function () {
+                                        this.classList.toggle("active");
+                                        var content = this.nextElementSibling;
+                                        if (content.style.maxHeight) {
+                                            content.style.maxHeight = null;
+                                        } else {
+                                            content.style.maxHeight = content.scrollHeight + "px";
+                                        }
+                                    });
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexdiv">
+                    <div class="blockdiv">
+                        <h5 class="blockheading">Asset Heading 3</h5>
+                        <div id="heightdivpdf">
+                            <div id="pdfdiv">
+                                <embed
+                                    src="https://mrcet.com/downloads/digital_notes/CSE/IV%20Year/(R17A0528%20)%20Big%20Data%20Analytics%20Digital%20notes.pdf"
+                                    type="application/pdf" height="100%" width="100%" />
+                            </div>
+                            
+                        
+                        </div>&#8744;
+                        <div class="blockicon"> 
+                            <button class="collapsible"></button>
+                            <div class="content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat.</p>
+                            </div>
+                            <script>
+                                var coll = document.getElementsByClassName("collapsible");
+                                var i;
+
+                                for (i = 0; i < coll.length; i++) {
+                                    coll[i].addEventListener("click", function () {
+                                        this.classList.toggle("active");
+                                        var content = this.nextElementSibling;
+                                        if (content.style.maxHeight) {
+                                            content.style.maxHeight = null;
+                                        } else {
+                                            content.style.maxHeight = content.scrollHeight + "px";
+                                        }
+                                    });
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <div id="photodiv">
+                        <div class="blockdiv" style="width: 100%">
+                            <h5 class="blockheading">Asset Heading 4</h5>
+                            <div class="heightdiv">
+                                <img src="http://drive.google.com/uc?export=view&id=1iIMvY4sksWxHsbBaiAikq_XGJ6aDDnQ2"
+                                    height="100%" width="100%" />
+                            </div>
+                            <div class="blockicon">
+                                <button class="collapsible"></button>
+                                <div class="content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat.</p>
+                                </div>
+                                <script>
+                                    var coll = document.getElementsByClassName("collapsible");
+                                    var i;
+
+                                    for (i = 0; i < coll.length; i++) {
+                                        coll[i].addEventListener("click", function () {
+                                            this.classList.toggle("active");
+                                            var content = this.nextElementSibling;
+                                            if (content.style.maxHeight) {
+                                                content.style.maxHeight = null;
+                                            } else {
+                                                content.style.maxHeight = content.scrollHeight + "px";
+                                            }
+                                        });
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flexdiv">
+                    <div class="blockdiv">
+                        <h5 class="blockheading">Asset Heading 5</h5>
+                        <div class="heightdiv">
+                            <div id="audiomaindiv">
+                                <div id="audiofirstdiv">
+                                    <audio controls>
+                                        <source src="" type="audio/mpeg" />
+                                    </audio>
+                                </div>
+                                <div id="audioseconddiv">
+                                    <p>
+                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                        Deleniti, error. Modi iusto ut esse cum quidem sint ex
+                                        aspernatur voluptatem.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blockicon">
+                            <button class="collapsible"></button>
+                            <div class="content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat.</p>
+                            </div>
+                            <script>
+                                var coll = document.getElementsByClassName("collapsible");
+                                var i;
+
+                                for (i = 0; i < coll.length; i++) {
+                                    coll[i].addEventListener("click", function () {
+                                        this.classList.toggle("active");
+                                        var content = this.nextElementSibling;
+                                        if (content.style.maxHeight) {
+                                            content.style.maxHeight = null;
+                                        } else {
+                                            content.style.maxHeight = content.scrollHeight + "px";
+                                        }
+                                    });
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <div class="blockdiv">
+                        <h5 class="blockheading">Asset Heading 6</h5>
+                        <div class="heightdiv">
+                            <div id="ytvideo">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/s8H0Sx7jy7c"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                                </div>
+                        </div>
+                        <div class="blockicon">
+                            <button class="collapsible"></button>
+                            <div class="content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat.</p>
+                            </div>
+                            <script>
+                                var coll = document.getElementsByClassName("collapsible");
+                                var i;
+
+                                for (i = 0; i < coll.length; i++) {
+                                    coll[i].addEventListener("click", function () {
+                                        this.classList.toggle("active");
+                                        var content = this.nextElementSibling;
+                                        if (content.style.maxHeight) {
+                                            content.style.maxHeight = null;
+                                        } else {
+                                            content.style.maxHeight = content.scrollHeight + "px";
+                                        }
+                                    });
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bottombutton">
+        <button id="bottombuttonid">Submit</button>
+    </div>
+</body>
+
+</html>
